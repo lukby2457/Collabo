@@ -15,19 +15,11 @@ public class Print {
 		
 		List<AccountVO> list = dao.selectAll();
 		
+		String msg = "%d\t %s\t %s\t %s\t %s\n";
+		
 		for(AccountVO row : list) {
-			System.out.print(row.getIdx() + "\t" + row.getUserid() + "\t\t");
-			
-			String userpw = row.getUserpw() + "";
-			
-			if(userpw.length() >= 6) {
-				System.out.print(userpw.substring(0, 6) + "\t");
-			}
-			else {
-				System.out.print(userpw + "\t");
-			}
-			
-			System.out.print(row.getNick() + "\t" + row.getEmail() + "\t" + row.getJoin_date() + "\n");
+			System.out.printf(msg, row.getIdx(), row.getUserid(), 
+					row.getNick(), row.getEmail(), row.getJoin_date());
 		}
 	}
 
