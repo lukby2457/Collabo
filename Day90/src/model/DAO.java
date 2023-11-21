@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DAO {
-	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@192.168.1.100:1521:xe";
-	private String user = "c##itbank";
-	private String password = "it";
+	protected String driver = "oracle.jdbc.driver.OracleDriver";
+	protected String url = "jdbc:oracle:thin:@192.168.1.100:1521:xe";
+	protected String user = "c##itbank";
+	protected String password = "it";
 	
-	private Connection conn;
-	private Statement stmt;
-	private ResultSet rs;
+	protected Connection conn;
+	protected Statement stmt;
+	protected ResultSet rs;
 	
 	public DAO() {
 		try {
@@ -25,7 +25,7 @@ public class DAO {
 		}
 	}
 	
-	private void close() {
+	protected void close() {
 		try {
 			if(rs != null )		rs.close();
 			if(stmt != null)	stmt.close();
